@@ -1,3 +1,7 @@
+;;; golang.el --- setup golang lsp for emacs
+;;; commentary:
+;;; code:
+
 (use-package go-mode
   :mode "\\.go\\'"
   :hook (before-save . gofmt-before-save))
@@ -17,8 +21,7 @@
   ;; disable Yasnippet
   (setq lsp-enable-snippet nil)
   (setq lsp-prefer-flymake nil)      ; Use lsp-ui and flycheck
-  (setq flymake-fringe-indicator-position 'right-fringe)
-  )
+  (setq flymake-fringe-indicator-position 'right-fringe))
 
 (use-package flycheck-golangci-lint
   :ensure t)
@@ -35,12 +38,13 @@
   (use-package dap-ui
     :ensure nil
     :config
-    (dap-ui-mode 1)
-    )
-  )
+    (dap-ui-mode 1)))
 
 (defun lsp-go-install-save-hooks ()
   (add-hook 'before-save-hook #'lsp-format-buffer t t)
   (add-hook 'before-save-hook #'lsp-organize-imports t t))
 
 (add-hook 'go-mode-hook #'lsp-go-install-save-hooks)
+
+(provide 'golang)
+;;; golang.el ends here

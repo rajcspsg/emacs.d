@@ -1,3 +1,6 @@
+;;; scala.el --- setup scala lsp in emacs
+;;; commentary:
+;;; code:
 
 ;; Enable defer and ensure by default for use-package
 ;; Keep auto-save/backup files separate from source code:  https://github.com/scalameta/metals/issues/1027
@@ -22,8 +25,7 @@
    'self-insert-command
    minibuffer-local-completion-map)
    ;; sbt-supershell kills sbt-mode:  https://github.com/hvesalai/emacs-sbt-mode/issues/152
-   (setq sbt:program-options '("-Dsbt.supershell=false"))
-)
+   (setq sbt:program-options '("-Dsbt.supershell=false")))
 
 ;; Enable nice rendering of diagnostics like compile errors.
 (use-package flycheck
@@ -41,11 +43,12 @@
   ;;       (setq lsp-idle-delay 0.500)
   ;;       (setq lsp-log-io nil)
   ;;       (setq lsp-completion-provider :capf)
-  (setq lsp-prefer-flymake nil))
+
+  (setq lsp-prefer-flymake nil)
+  (setq lsp-keep-workspace-alive nil))
 
 ;; Add metals backend for lsp-mode
-(use-package lsp-metals
-  :config (setq lsp-metals-treeview-show-when-views-received t))
+(use-package lsp-metals)
 
 ;; Enable nice rendering of documentation on hover
 ;;   Warning: on some systems this package can reduce your emacs responsiveness significally. 
@@ -62,14 +65,15 @@
 ;; Add company-lsp backend for metals.
 ;;   (depending on your lsp-mode version it may be outdated see:
 ;;    https://github.com/emacs-lsp/lsp-mode/pull/1983)
-(use-package company-lsp)
+;;(use-package company-lsp)
 
 ;; Use the Debug Adapter Protocol for running tests and debugging
-(use-package posframe
-  ;; Posframe is a pop-up tool that must be manually installed for dap-mode
-  )
+;; Posframe is a pop-up tool that must be manually installed for dap-mode
+(use-package posframe)
 (use-package dap-mode
   :hook
   (lsp-mode . dap-mode)
-  (lsp-mode . dap-ui-mode)
-  )
+  (lsp-mode . dap-ui-mode))
+
+(provide 'scala)
+;;; scala.el ends here

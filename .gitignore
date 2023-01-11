@@ -1,0 +1,7 @@
+.cache/
+cache/
+.extension/
+elpa/
+eshell/
+url/
+transient/

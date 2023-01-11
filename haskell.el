@@ -1,3 +1,7 @@
+;;; haskel.el -- setup haskell lsp for emacs
+;;; commentary:
+;;; code:
+
 (setenv "PATH" (concat (getenv "HOME") "/.ghcup/bin:" (getenv "HOME") "/.local/bin:" "/usr/local/bin:" (getenv "PATH")))
 
 (setq exec-path
@@ -34,3 +38,6 @@
 
 (add-hook 'haskell-mode-hook #'lsp)
 (add-hook 'haskell-literate-mode-hook #'lsp)
+
+(provide 'haskell)
+;;; haskell.el ends here

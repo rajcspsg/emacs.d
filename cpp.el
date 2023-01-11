@@ -1,3 +1,7 @@
+;;; cpp.el --- set clangd lsp for c/c++
+;;; commentary:
+;;; code:
+
 (setq package-selected-packages '(lsp-mode yasnippet lsp-treemacs helm-lsp
     projectile hydra flycheck company avy which-key helm-xref dap-mode))
 
@@ -28,3 +32,6 @@
   (add-hook 'lsp-mode-hook #'lsp-enable-which-key-integration)
   (require 'dap-cpptools)
   (yas-global-mode))
+
+(provide 'cpp)
+;;; cpp.el ends here

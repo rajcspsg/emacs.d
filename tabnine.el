@@ -1,3 +1,7 @@
+;;; tabnine.el --- setup tabnine completion for emacs
+;;; commentary:
+;;; code:
+
 (use-package company-tabnine :ensure t)
 ;;(add-to-list 'company-backends #'company-tabnine)
 
@@ -22,3 +26,6 @@
 
 (advice-add #'company--transform-candidates :around #'my-company--transform-candidates)
 (advice-add #'company-tabnine :around #'my-company-tabnine)
+
+(provide 'tabnine)
+;;; tabnine.el ends here
