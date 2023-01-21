@@ -1,3 +1,7 @@
+;;; java.el --- setup java lsp
+;;; commentary:
+;;; code:
+
 (setq EMACS_DIR "~/.emacs.d/")
 
 ;;Set language environment to UTF-8
@@ -68,8 +72,7 @@
 (use-package ansi-color
 :ensure t
 :config
-(add-hook 'compilation-filter-hook 'my/ansi-colorize-buffer)
-)
+(add-hook 'compilation-filter-hook 'my/ansi-colorize-buffer))
 
 (use-package use-package-chords
 :ensure t
@@ -83,8 +86,7 @@
 :ensure t
 :init (projectile-mode +1)
 :config 
-(define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
-)
+(define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map))
 
 (use-package helm
 :ensure t
@@ -130,9 +132,7 @@
 (setq helm-swoop-speed-or-color nil)
 
 ;; ;; Go to the opposite side of line from the end or beginning of line
-(setq helm-swoop-move-to-line-cycle t)
-
-)
+(setq helm-swoop-move-to-line-cycle t))
 
 (use-package avy 
 :ensure t
@@ -144,8 +144,7 @@
 (use-package which-key 
 :ensure t 
 :init
-(which-key-mode)
-)
+(which-key-mode))
 
 (use-package quickrun 
 :ensure t
@@ -192,8 +191,7 @@
          ([remap xref-find-references] . lsp-ui-peek-find-references))
 :init (setq lsp-ui-doc-delay 1.5
       lsp-ui-doc-position 'bottom
-	  lsp-ui-doc-max-width 100
-	  ))
+	  lsp-ui-doc-max-width 100))
 
 (use-package helm-lsp
 :ensure t
@@ -205,22 +203,22 @@
 :ensure t
 :hook (
    (lsp-mode . lsp-enable-which-key-integration)
-   (java-mode . #'lsp-deferred)
-)
+   (java-mode . #'lsp-deferred))
 :init (setq 
     lsp-keymap-prefix "C-c l"              ; this is for which-key integration documentation, need to use lsp-mode-map
     lsp-enable-file-watchers nil
     read-process-output-max (* 1024 1024)  ; 1 mb
     lsp-completion-provider :capf
-    lsp-idle-delay 0.500
-)
+    lsp-idle-delay 0.500)
 :config 
     (setq lsp-intelephense-multi-root nil) ; don't scan unnecessary projects
     (with-eval-after-load 'lsp-intelephense
     (setf (lsp--client-multi-root (gethash 'iph lsp-clients)) nil))
-	(define-key lsp-mode-map (kbd "C-c l") lsp-command-map)
-	)
+	(define-key lsp-mode-map (kbd "C-c l") lsp-command-map))
 
 (use-package lsp-java 
 :ensure t
 :config (add-hook 'java-mode-hook 'lsp))
+
+(provide 'java)
+;;; java.el ends here

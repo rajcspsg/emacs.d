@@ -1,4 +1,8 @@
-(menu-bar-mode -1) 
+;;; init.el --- setup emacs configs
+;;; commentary:
+;;; code:
+
+(menu-bar-mode -1)
 (tool-bar-mode -1)
 
 ;;(setq EMACS_DIR "~/.emacs.d/")
@@ -15,6 +19,17 @@
   (package-install 'use-package))
 
 (eval-when-compile (require 'use-package))
+
+(use-package all-the-icons  :ensure t)
+(use-package all-the-icons-completion  :ensure t)
+(use-package all-the-icons-gnus  :ensure t)
+(use-package all-the-icons-dired  :ensure t)
+(use-package all-the-icons-ivy  :ensure t)
+(use-package all-the-icons-ivy-rich  :ensure t)
+(use-package all-the-icons-ibuffer  :ensure t)
+(use-package treemacs-all-the-icons  :ensure t)
+(use-package winum)
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -22,9 +37,9 @@
  ;; If there is more than one, they won't work right.
  '(custom-enabled-themes '(doom-palenight))
  '(custom-safe-themes
-   '("c83c095dd01cde64b631fb0fe5980587deec3834dc55144a6e78ff91ebc80b19" default))
+   '("2e05569868dc11a52b08926b4c1a27da77580daa9321773d92822f7a639956ce" "ff24d14f5f7d355f47d53fd016565ed128bf3af30eb7ce8cae307ee4fe7f3fd0" "5f128efd37c6a87cd4ad8e8b7f2afaba425425524a68133ac0efd87291d05874" "c83c095dd01cde64b631fb0fe5980587deec3834dc55144a6e78ff91ebc80b19" default))
  '(package-selected-packages
-   '(helm-swoop lsp-java clojure-mode lsp-mode cider lsp-treemacs flycheck company)))
+   '(rainbow-identifiers winum rainbow-mode spaceline-all-the-icons all-the-icons-dired all-the-icons-ibuffer all-the-icons-ivy all-the-icons-ivy-rich all-the-icons-completion all-the-icons centaur-tabs kaolin-themes helm-swoop lsp-java clojure-mode lsp-mode cider lsp-treemacs flycheck company rainbow-delimiters)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -32,10 +47,21 @@
  ;; If there is more than one, they won't work right.
  )
 
+(use-package kaolin-themes
+  :config
+  (load-theme 'kaolin-dark t)
+  (kaolin-treemacs-theme))
+
+(when (string= system-type "darwin")
+  (setq dired-use-ls-dired t
+		insert-directory-program "~/.homebrew/bin/gls"
+		dired-listing-switches "-aBhl --group-directories-first"))
+
+
 (load "~/.emacs.d/centaur-tabs.el")
 (load "~/.emacs.d/treemacs.el")
 (load "~/.emacs.d/cmake.el")
-;;(load "~/.emacs.d/java.el")
+(load "~/.emacs.d/java.el")
 (load "~/.emacs.d/scala.el")
 (load "~/.emacs.d/golang.el")
 (load "~/.emacs.d/python.el")
@@ -47,3 +73,15 @@
 
 
 (add-hook 'emacs-startup-hook 'treemacs)
+
+(set-face-attribute 'default nil
+                    :family "Monofurbold Nerd Font Mono"
+                    :height 160
+                    :weight 'normal
+                    :width 'normal)
+
+(setq rainbow-delimiters-mode t)
+(winum-mode t)
+
+;;; (provide init)
+;;; init.el ends here

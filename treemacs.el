@@ -1,3 +1,7 @@
+;;; treemacs.el --- setup treemacs in emacs editor
+;;; commentary:
+;;; code:
+
 (use-package treemacs
   :ensure t
   :defer t
@@ -46,6 +50,7 @@
           treemacs-user-mode-line-format         nil
           treemacs-user-header-line-format       nil
           treemacs-width                         35
+		  treemacs-width-is-initially-locked     nil
           treemacs-workspace-switch-cleanup      nil)
 
     ;; The default width and height of the icons is 22 pixels. If you are
@@ -91,3 +96,6 @@
   :after (treemacs persp-mode) ;;or perspective vs. persp-mode
   :ensure t
   :config (treemacs-set-scope-type 'Perspectives))
+
+(provide 'treemacs)
+;;; treemacs.el ends here

@@ -1,0 +1,4 @@
+;;;; -*- mode: lisp-data -*-
+(
+ (:id "sha1:0674484044c7dcc24a8ac45935baa6fdfadcc8d5" :fingerprints ("sha1:17:e1:8b:27:f1:62:aa:e4:50:60:bf:9c:b2:c4:31:5c:71:b8:51:af") :host "marketplace.visualstudio.com:443" :conditions (:invalid-ocsp-status :invalid :verify-cert))
+)

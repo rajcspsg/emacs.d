@@ -1,3 +1,7 @@
+;;; cmake.el --- setup cmake lsp for emacs
+;;; commentary:
+;;; code:
+
 (use-package lsp-mode
   :ensure t)
 
@@ -10,3 +14,6 @@
   :ensure t
   :after cmake-mode
   :config (cmake-font-lock-activate))
+
+(provide 'cmake)
+;;; cmake.el ends here

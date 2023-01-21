@@ -1,19 +1,25 @@
-(setq package-selected-packages '(clojure-mode lsp-mode cider lsp-treemacs flycheck company))
+;;; clojure.el --- setup clojure lsp for emacs
+;;; commentary:
+;;; code:
 
-(when (cl-find-if-not #'package-installed-p package-selected-packages)
-  (package-refresh-contents)
-  (mapc #'package-install package-selected-packages))
+(use-package lsp-mode
+  :ensure t
+  :hook ((clojure-mode . lsp)
+		 (clojurec-mode . lsp)
+		 (clojurescript-mode . lsp))
+  :config
+  (setenv "PATH" (concat
+				  "/usr/local/bin" path-separator
+				                     (getenv "PATH")))
+  (dolist (m '(clojure-mode
+			   clojurec-mode
+			   clojurescript-mode
+			   clojurex-mode))
+	(add-to-list 'lsp-language-id-configuration `(,m . "clojure"))))
 
-(add-hook 'clojure-mode-hook 'lsp)
-(add-hook 'clojurescript-mode-hook 'lsp)
-(add-hook 'clojurec-mode-hook 'lsp)
+(add-hook 'clojure-mode-hook 'rainbow-delimiters-mode)
+(add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
+(setenv "JAVA_OPTS" "-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=1044")
 
-(setq gc-cons-threshold (* 100 1024 1024)
-      read-process-output-max (* 1024 1024)
-      treemacs-space-between-root-nodes nil
-      company-minimum-prefix-length 1
-      lsp-lens-enable t
-      lsp-signature-auto-activate nil 
-      ; lsp-enable-indentation nil ; uncomment to use cider indentation instead of lsp
-      ; lsp-enable-completion-at-point nil ; uncomment to use cider completion instead of lsp
-      )
+(provide 'clojure)
+;;; clojure.el ends here

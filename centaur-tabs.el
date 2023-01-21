@@ -1,4 +1,8 @@
-(use-package centaur-tabs
+;;; centaur.el --- add tabs to your emacs editor
+;;; commentary:
+;;; code:
+
+:(use-package centaur-tabs
    :config
    (setq centaur-tabs-style "bar"
 	  centaur-tabs-height 32
@@ -11,3 +15,6 @@
    (centaur-tabs-mode t)
    (setq uniquify-separator "/")
    (setq uniquify-buffer-name-style 'forward))
+
+(provide 'centaur-tabs)
+;;; centaur-tabs.el ends here
