@@ -19,7 +19,7 @@
 
 (add-hook 'clojure-mode-hook 'rainbow-delimiters-mode)
 (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
-
+(setenv "JAVA_OPTS" "-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=1044")
 
 (provide 'clojure)
 ;;; clojure.el ends here

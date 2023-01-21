@@ -86,8 +86,7 @@
 :ensure t
 :init (projectile-mode +1)
 :config 
-(define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
-)
+(define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map))
 
 (use-package helm
 :ensure t
@@ -133,9 +132,7 @@
 (setq helm-swoop-speed-or-color nil)
 
 ;; ;; Go to the opposite side of line from the end or beginning of line
-(setq helm-swoop-move-to-line-cycle t)
-
-)
+(setq helm-swoop-move-to-line-cycle t))
 
 (use-package avy 
 :ensure t
@@ -147,8 +144,7 @@
 (use-package which-key 
 :ensure t 
 :init
-(which-key-mode)
-)
+(which-key-mode))
 
 (use-package quickrun 
 :ensure t
