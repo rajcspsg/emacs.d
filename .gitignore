@@ -5,3 +5,7 @@ elpa/
 eshell/
 url/
 transient/
+.lsp-session-v1
+.dap-breakpoints
+recentf
+network-security.data

@@ -39,7 +39,7 @@
  '(custom-safe-themes
    '("5f128efd37c6a87cd4ad8e8b7f2afaba425425524a68133ac0efd87291d05874" "c83c095dd01cde64b631fb0fe5980587deec3834dc55144a6e78ff91ebc80b19" default))
  '(package-selected-packages
-   '(winum rainbow-mode spaceline-all-the-icons all-the-icons-dired all-the-icons-ibuffer all-the-icons-ivy all-the-icons-ivy-rich all-the-icons-completion all-the-icons centaur-tabs kaolin-themes helm-swoop lsp-java clojure-mode lsp-mode cider lsp-treemacs flycheck company rainbow-delimiters)))
+   '(rainbow-identifiers winum rainbow-mode spaceline-all-the-icons all-the-icons-dired all-the-icons-ibuffer all-the-icons-ivy all-the-icons-ivy-rich all-the-icons-completion all-the-icons centaur-tabs kaolin-themes helm-swoop lsp-java clojure-mode lsp-mode cider lsp-treemacs flycheck company rainbow-delimiters)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
