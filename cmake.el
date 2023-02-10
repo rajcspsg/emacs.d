@@ -2,9 +2,6 @@
 ;;; commentary:
 ;;; code:
 
-(use-package lsp-mode
-  :ensure t)
-
 (use-package cmake-mode
   :ensure t
   :mode ("CMakeLists\\.txt\\'" "\\.cmake\\'")
