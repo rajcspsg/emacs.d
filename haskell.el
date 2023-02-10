@@ -10,22 +10,12 @@
         (reverse exec-path)
         (list (concat (getenv "HOME") "/.ghcup/bin" (getenv "HOME") "/.local/bin")  "/usr/local/bin" ))))
 
-(use-package flycheck
-  :ensure t
-  :init
-  (global-flycheck-mode t))
 
-(use-package yasnippet
-  :ensure t)
 
 (use-package lsp-mode
   :ensure t
   :hook (haskell-mode . lsp)
   :commands lsp)
-
-(use-package lsp-ui
-  :ensure t
-  :commands lsp-ui-mode)
 
 (use-package lsp-haskell
   :ensure t

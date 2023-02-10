@@ -6,9 +6,6 @@
   :mode "\\.go\\'"
   :hook (before-save . gofmt-before-save))
 
-(require 'flycheck)
-(global-flycheck-mode 1)
-
 
 (add-hook 'before-save-hook 'gofmt-before-save)
 
