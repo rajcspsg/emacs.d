@@ -36,6 +36,13 @@
 (add-hook 'minibuffer-exit-hook (lambda () (electric-pair-mode 1)))
 
 
+(use-package jet)
+(defun jet-json-to-clipboard ()
+  (interactive)
+  (jet-to-clipboard (jet--thing-at-point) '("--from=json" "--to=edn")))
+  
+(global-set-key (kbd "C-c j j e") 'copy-json-as-edn)
+
 (use-package clojure-mode
   :ensure t
   :hook (subword-mode paredit-mode lsp))

@@ -59,7 +59,7 @@
     (dap-session-created . (lambda (&_rest) (dap-hydra)))
     (dap-terminated . (lambda (&_rest) (dap-hydra/nil)))))
 
-(use-package dap-java :ensure nil)
+(use-package dap-java :ensure t)
 
 (use-package lsp-treemacs
   :after (lsp-mode treemacs)

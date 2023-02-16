@@ -1,3 +1,6 @@
+;;; model-line.el --- setup model line for emacs
+;;; commentary:
+;;; code:
 ;; This package requires the fonts included with all-the-icons to be installed. Run M-x all-the-icons-install-fonts to do so.
 ;; The modeline looks really nice with doom-themes, e.g., doom-solarised-light.
 (use-package doom-modeline
@@ -29,6 +32,9 @@
   (use-package minions
     :init (minions-mode))
 
-  ;; A quick hacky way to add stuff to doom-modeline is to add to the mode-line-process list.
-  ;; E.g.:  (add-to-list 'mode-line-process '(:eval (format "%s" (count-words (point-min) (point-max)))))
+;; A quick hacky way to add stuff to doom-modeline is to add to the mode-line-process list.
+;; E.g.:  (add-to-list 'mode-line-process '(:eval (format "%s" (count-words (point-min) (point-max)))))
 ;; We likely want to add this locally, to hooks on major modes.
+
+(provide 'model-line)
+;;; model-line.el ends here
