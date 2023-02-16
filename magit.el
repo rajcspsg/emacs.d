@@ -1,5 +1,9 @@
+;;; magit.el --- setup magit for emacs
+;;; commentary:
+;;; code:
 ;; Bottom of Emacs will show what branch you're on
 ;; and whether the local file is modified or not.
+
 (use-package magit
   :init (require 'magit-files)
   :bind (("C-c M-g" . magit-file-dispatch))
@@ -27,3 +31,6 @@
   ;; Ignore TODOs mentioned in exported HTML files; they're duplicated from org src.
   (setq magit-todos-exclude-globs '("*.html"))
   (magit-todos-mode))
+
+(provide 'magit)
+;;; magit.el ends here

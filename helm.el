@@ -1,4 +1,6 @@
-
+;;; helm.el --- sets up helm for emacs
+;;; commentary:
+;;; code:
 ;; sample `helm' configuration use https://github.com/emacs-helm/helm/ for details
 (helm-mode)
 
@@ -71,3 +73,5 @@
 :commands (helm-lsp-workspace-symbol)
 :init (define-key lsp-mode-map [remap xref-find-apropos] #'helm-lsp-workspace-symbol))
 
+(provide 'helm)
+;;; helm.el ends here
