@@ -149,8 +149,8 @@
 (load "~/.emacs.d/clojure.el")
 (load "~/.emacs.d/tabnine.el")
 (load "~/.emacs.d/java.el")
-(load "~/.emacs.d/js.el")
-(load "~/.emacs.d/elixir.el")
+;;(load "~/.emacs.d/js.el")
+;;(load "~/.emacs.d/elixir.el")
 (load "~/.emacs.d/magit.el")
 (load "~/.emacs.d/model-line.el")
 

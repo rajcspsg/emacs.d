@@ -51,7 +51,7 @@
   :after (lsp-mode)
   :functions dap-hydra/nil
   :config
-  (require 'dap-java)
+  ;; (require 'dap-java)
   :bind (:map lsp-mode-map
          ("<f5>" . dap-debug)
          ("M-<f5>" . dap-hydra))
@@ -59,7 +59,7 @@
     (dap-session-created . (lambda (&_rest) (dap-hydra)))
     (dap-terminated . (lambda (&_rest) (dap-hydra/nil)))))
 
-(use-package dap-java :ensure t)
+;; (use-package dap-java :ensure t)
 
 (use-package lsp-treemacs
   :after (lsp-mode treemacs)
