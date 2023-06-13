@@ -10,9 +10,6 @@
         (reverse exec-path)
         (list (concat (getenv "HOME") "/.ghcup/bin" (getenv "HOME") "/.local/bin")  "/usr/local/bin" ))))
 
-
-(setq)
-
 (use-package lsp-mode
   :ensure t
   :hook (haskell-mode . lsp)
