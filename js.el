@@ -8,16 +8,29 @@
   :config
   (setq typescript-indent-level 2))
 
-(use-package dap-mode)
-(use-package 'dap-node)
+(add-hook 'typescript-mode-hook 'lsp-deferred)
+(add-hook 'javascript-mode-hook 'lsp-deferred)
 
-;; (dap-node-setup)
+
+(use-package dap-mode)
+(require 'dap-node)
+
+(defun my-setup-dap-node ()
+  "Require dap-node feature and run dap-node-setup if VSCode module isn't already installed"
+  (require 'dap-node)
+  (unless (file-exists-p dap-node-debug-path) (dap-node-setup)))
+
+(add-hook 'typescript-mode-hook 'my-setup-dap-node)
+(add-hook 'javascript-mode-hook 'my-setup-dap-node)
+
+(dap-node-setup)
 
 ;;(dap-debug-register-template "Node: Run"
 ;;							 (list :type "node"
 ;;								   :request "launch"
-;;								   :program "${workspaceFolder}/src/server/index.ts"
-;;								   :outFiles ["${workspaceFolder}/public/src/server/**/*.js"]
+;;								   :program "${workspaceFolder}/index.ts"
+;;								   :dap-compilation "npx tsc index.ts --outdir dist --sourceMap true"
+;;								   :outFiles ["${workspaceFolder}/dist/**/*.js"]
 ;;								   :name "Debug Server"))
 
 (provide 'js)
