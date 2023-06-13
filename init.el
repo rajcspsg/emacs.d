@@ -46,6 +46,7 @@
 (use-package all-the-icons-ibuffer  :ensure t)
 (use-package treemacs-all-the-icons  :ensure t)
 (use-package winum)
+(setenv "PATH" (shell-command-to-string "source ~/.bashrc; echo -n $PATH"))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.

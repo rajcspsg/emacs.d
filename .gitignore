@@ -12,4 +12,5 @@ network-security.data
 projectile.cache
 eln-cache
 projects
+eclipse.jdt.ls
 
