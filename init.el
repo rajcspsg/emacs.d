@@ -56,7 +56,7 @@
  '(custom-safe-themes
    '("2e05569868dc11a52b08926b4c1a27da77580daa9321773d92822f7a639956ce" "ff24d14f5f7d355f47d53fd016565ed128bf3af30eb7ce8cae307ee4fe7f3fd0" "5f128efd37c6a87cd4ad8e8b7f2afaba425425524a68133ac0efd87291d05874" "c83c095dd01cde64b631fb0fe5980587deec3834dc55144a6e78ff91ebc80b19" default))
  '(package-selected-packages
-   '(clojure-quick-repls cider-eval-sexp-fu rainbow-identifiers winum rainbow-mode spaceline-all-the-icons all-the-icons-dired all-the-icons-ibuffer all-the-icons-ivy all-the-icons-ivy-rich all-the-icons-completion all-the-icons yasnippet helm-lsp projectile hydra company avy which-key helm-xref dap-mode centaur-tabs kaolin-themes helm-swoop lsp-java clojure-mode lsp-mode cider lsp-treemacs flycheck company rainbow-delimiters paredit syntax-subword parseedn jet mix elixir-mode)))
+   '(clojure-quick-repls cider-eval-sexp-fu rainbow-identifiers winum rainbow-mode spaceline-all-the-icons all-the-icons-dired all-the-icons-ibuffer all-the-icons-ivy all-the-icons-ivy-rich all-the-icons-completion all-the-icons yasnippet helm-lsp projectile hydra company avy which-key helm-xref dap-mode centaur-tabs kaolin-themes helm-swoop lsp-java clojure-mode lsp-mode cider lsp-treemacs flycheck company rainbow-delimiters paredit syntax-subword parseedn jet mix elixir-mode dap-mode typescript-mode tree-sitter tree-sitter-langs lsp-mode lsp-ui)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -137,10 +137,12 @@
 (load "~/.emacs.d/centaur-tabs.el")
 (load "~/.emacs.d/treemacs.el")
 (load "~/.emacs.d/helm.el")
+(load "~/.emacs.d/treesitter.el")
 (load "~/.emacs.d/lsp.el")
 (load "~/.emacs.d/dap.el")
 (load "~/.emacs.d/cmake.el")
 (load "~/.emacs.d/java.el")
+;;(load "~/.emacs.d/javascript.el")
 (load "~/.emacs.d/scala.el")
 (load "~/.emacs.d/golang.el")
 (load "~/.emacs.d/python.el")
@@ -149,7 +151,7 @@
 (load "~/.emacs.d/clojure.el")
 (load "~/.emacs.d/tabnine.el")
 (load "~/.emacs.d/java.el")
-;;(load "~/.emacs.d/js.el")
+(load "~/.emacs.d/js.el")
 ;;(load "~/.emacs.d/elixir.el")
 (load "~/.emacs.d/magit.el")
 (load "~/.emacs.d/model-line.el")
@@ -164,7 +166,7 @@
 (add-hook 'emacs-startup-hook 'treemacs)
 
 (set-face-attribute 'default nil
-                    :family "Monofurbold Nerd Font Mono"
+                    :family "Monofurbold Nerd Font"
                     :height 160
                     :weight 'normal
                     :width 'normal)
@@ -174,3 +176,4 @@
 
 ;;; (provide init)
 ;;; init.el ends here
+(put 'upcase-region 'disabled nil)
