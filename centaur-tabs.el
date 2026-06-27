@@ -2,11 +2,12 @@
 ;;; commentary:
 ;;; code:
 
-:(use-package centaur-tabs
+(use-package centaur-tabs
    :config
    (setq centaur-tabs-style "bar"
 		 centaur-tabs-height 32
 		 centaur-tabs-set-icons t
+		 centaur-tabs-icon-type 'all-the-icons
 		 centaur-tabs-set-modified-marker t
 		 centaur-tabs-show-navigation-buttons t
 		 centaur-tabs-set-bar 'under
