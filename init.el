@@ -47,22 +47,25 @@
 (use-package treemacs-all-the-icons  :ensure t)
 (use-package winum)
 
+;; Trust all themes so Emacs never prompts "Loading a theme can run Lisp code..."
+;; Must be set before any theme is loaded (i.e. before custom-set-variables below).
+(setq custom-safe-themes t)
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(custom-enabled-themes '(doom-palenight))
- '(custom-safe-themes
-   '("2e05569868dc11a52b08926b4c1a27da77580daa9321773d92822f7a639956ce" "ff24d14f5f7d355f47d53fd016565ed128bf3af30eb7ce8cae307ee4fe7f3fd0" "5f128efd37c6a87cd4ad8e8b7f2afaba425425524a68133ac0efd87291d05874" "c83c095dd01cde64b631fb0fe5980587deec3834dc55144a6e78ff91ebc80b19" default))
+ '(custom-safe-themes t)
  '(package-selected-packages
-   '(clojure-quick-repls cider-eval-sexp-fu rainbow-identifiers winum rainbow-mode spaceline-all-the-icons all-the-icons-dired all-the-icons-ibuffer all-the-icons-ivy all-the-icons-ivy-rich all-the-icons-completion all-the-icons yasnippet helm-lsp projectile hydra company avy which-key helm-xref dap-mode centaur-tabs kaolin-themes helm-swoop lsp-java clojure-mode lsp-mode cider lsp-treemacs flycheck company rainbow-delimiters paredit syntax-subword parseedn jet mix elixir-mode dap-mode typescript-mode tree-sitter tree-sitter-langs lsp-ui)))
-(custom-set-faces
+   '(clojure-quick-repls cider-eval-sexp-fu rainbow-identifiers winum rainbow-mode spaceline-all-the-icons all-the-icons-dired all-the-icons-ibuffer all-the-icons-ivy all-the-icons-ivy-rich all-the-icons-completion all-the-icons yasnippet helm-lsp projectile hydra company avy which-key helm-xref dap-mode centaur-tabs kaolin-themes lsp-java clojure-mode lsp-mode cider lsp-treemacs flycheck company rainbow-delimiters paredit syntax-subword parseedn jet mix elixir-mode dap-mode typescript-mode tree-sitter tree-sitter-langs lsp-ui)))
+(custom-set-faces)
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ 
 
 (use-package kaolin-themes
   :config
@@ -71,8 +74,8 @@
 
 (when (string= system-type "darwin")
   (setq dired-use-ls-dired t
-		;; insert-directory-program "~/.homebrew/bin/gls"
-		dired-listing-switches "-aBhl --group-directories-first"))
+    ;; insert-directory-program "~/.homebrew/bin/gls"
+    dired-listing-switches "-aBhl --group-directories-first"))
 
 
 (when (cl-find-if-not #'package-installed-p package-selected-packages)
@@ -85,7 +88,7 @@
 ;; Org-mode issue with src block not expanding
 ;; This is a fix for bug in org-mode where <s TAB does not expand SRC block
 (when (version<= "9.2" (org-version))
-(require 'org-tempo))
+ (require 'org-tempo))
 
 ;; Coding specific setting
 
@@ -99,9 +102,9 @@
 (show-paren-mode 1)
 
 (use-package doom-themes
-:ensure t 
-:init 
-(load-theme 'doom-palenight t))
+ :ensure t 
+ :init 
+ (load-theme 'doom-palenight t))
 
 (use-package heaven-and-hell
   :ensure t
@@ -117,21 +120,21 @@
 ;;(add-to-list 'default-frame-alist '(font . "DejaVu Sans Mono-12"))
 
 (defun my/ansi-colorize-buffer ()
-(let ((buffer-read-only nil))
-(ansi-color-apply-on-region (point-min) (point-max))))
+ (let ((buffer-read-only nil))
+  (ansi-color-apply-on-region (point-min) (point-max))))
 
 (use-package ansi-color
-:ensure t
-:config
-(add-hook 'compilation-filter-hook 'my/ansi-colorize-buffer))
+ :ensure t
+ :config
+ (add-hook 'compilation-filter-hook 'my/ansi-colorize-buffer))
 
 (use-package use-package-chords
-:ensure t
-:init 
-:config (key-chord-mode 1)
-(setq key-chord-two-keys-delay 0.4)
-(setq key-chord-one-key-delay 0.5) ; default 0.2
-)
+ :ensure t
+ :init 
+ :config (key-chord-mode 1)
+ (setq key-chord-two-keys-delay 0.4)
+ (setq key-chord-one-key-delay 0.5)) ; default 0.2
+
 
 
 (load "~/.emacs.d/centaur-tabs.el")
