@@ -56,7 +56,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(custom-enabled-themes '(doom-palenight))
+ '(custom-enabled-themes nil)
  '(custom-safe-themes t)
  '(package-selected-packages
    '(clojure-quick-repls cider-eval-sexp-fu rainbow-identifiers winum rainbow-mode spaceline-all-the-icons all-the-icons-dired all-the-icons-ibuffer all-the-icons-ivy all-the-icons-ivy-rich all-the-icons-completion all-the-icons yasnippet helm-lsp projectile hydra company avy which-key helm-xref dap-mode centaur-tabs kaolin-themes lsp-java clojure-mode lsp-mode cider lsp-treemacs flycheck company rainbow-delimiters paredit syntax-subword parseedn jet mix elixir-mode dap-mode typescript-mode tree-sitter tree-sitter-langs lsp-ui)))
@@ -102,9 +102,13 @@
 (show-paren-mode 1)
 
 (use-package doom-themes
- :ensure t 
- :init 
- (load-theme 'doom-palenight t))
+ :ensure t)
+
+;; kusanagi-theme (not on MELPA) installed straight from GitHub via use-package :vc
+(use-package kusanagi-theme
+  :vc (:url "https://github.com/LionyxML/kusanagi-theme" :rev :newest)
+  :config
+  (load-theme 'kusanagi t))
 
 (use-package heaven-and-hell
   :ensure t
@@ -112,7 +116,7 @@
   (setq heaven-and-hell-theme-type 'dark)
   (setq heaven-and-hell-themes
         '((light . doom-acario-light)
-          (dark . doom-palenight)))
+          (dark . kusanagi)))
   :hook (after-init . heaven-and-hell-init-hook)
   :bind (("C-c <f6>" . heaven-and-hell-load-default-theme)
          ("<f6>" . heaven-and-hell-toggle-theme)))
